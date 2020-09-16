@@ -11,26 +11,21 @@ async def on_command_error(ctx, error):
         await ctx.send('\*confused croak\*. Invalid command used')
 
 
-#runs check for if the user is the bot author
-def check_if_me(ctx):
-    return ctx.message.author.id == 459820583224606721
-
-
 #commands to load and unload the cogs in ./cogs
 @client.command()
-@commands.check(check_if_me)
+@commands.is_owner()
 async def load(ctx, extension):
     client.load_extension(f'cogs.{extension}')
     await ctx.send('*Cog Loaded*')
 
 @client.command()
-@commands.check(check_if_me)
+@commands.is_owner()
 async def unload(ctx, extension):
     client.unload_extension(f'cogs.{extension}')
     await ctx.send('*Cog Unloaded*')
 
 @client.command()
-@commands.check(check_if_me)
+@commands.is_owner()
 async def reload(ctx, extension):
     client.reload_extension(f'cogs.{extension}')
     await ctx.send('*Cog Reloaded*')
