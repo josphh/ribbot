@@ -5,7 +5,49 @@ import sys
 import discord
 from discord.ext import commands
 
-client = commands.Bot(command_prefix="f.")
+# loads the prefix from the json file and allows the user to change it
+def get_prefix(client, message):
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    return prefixes[str(message.guild.id)]
+
+client = commands.Bot(command_prefix= get_prefix)
+
+
+## sets default value to '.f'
+@client.event
+async def on_guild_join(guild):
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    prefixes[str(guild.id)] = 'f.'
+
+    with open('prefixes.json', 'w') as f:
+        json.dump(prefixes, f)
+
+@client.event
+async def on_guild_remove(guild):
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    prefixes.pop(str(guild.id))
+
+    with open('prefixes.json', 'w') as f:
+        json.dump(prefixes, f)
+
+@client.command()
+async def changeprefix(ctx, prefix):
+    with open('prefixes.json', 'r') as f:
+        prefixes = json.load(f)
+
+    prefixes[str(ctx.guild.id)] = prefix
+
+    with open('prefixes.json', 'w') as f:
+        json.dump(prefixes, f)
+
+    await ctx.send(f'Prefix changed to: ' + prefix)
+
 
 # error message if a command isn't found
 @client.event
