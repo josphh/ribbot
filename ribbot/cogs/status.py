@@ -15,7 +15,7 @@ class Status_cycle(commands.Cog):
         await self.client.change_presence(
             status=discord.Status.idle, activity=discord.Game(status)
         )
-
-
+        
+        
 def setup(client):
     client.add_cog(Status_cycle(client))
