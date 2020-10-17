@@ -16,6 +16,7 @@ class Status_cycle(commands.Cog):
             status=discord.Status.idle, activity=discord.Game(status)
         )
         
+self.change_status.start()
         
 def setup(client):
     client.add_cog(Status_cycle(client))
