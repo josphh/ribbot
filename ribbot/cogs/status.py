@@ -15,10 +15,12 @@ class Status_cycle(commands.Cog):
         await self.client.change_presence(
             status=discord.Status.idle, activity=discord.Game(status)
         )
-        
+
+
 @commands.Cog.listener()
 async def on_ready(self):
     self.change_status.start()
-        
+
+
 def setup(client):
     client.add_cog(Status_cycle(client))
