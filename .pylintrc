@@ -1,0 +1,11 @@
+[MESSAGES CONTROL]
+disable=line-too-long,
+	trailing-whitespace,
+	missing-final-newline,
+	trailing-newlines,
+	multiple-statements,
+	superfluous-parens,
+	mixed-line-endings,
+	unexpected-line-ending-format,
+	unnecessary-semicolon,
+	missing-module-docstring
