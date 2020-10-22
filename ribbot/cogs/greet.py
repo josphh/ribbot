@@ -3,6 +3,7 @@ from discord.ext import commands
 
 class Greet(commands.Cog):
     """Cog providing a greeting command."""
+
     def __init__(self, client):
         self.client = client
 

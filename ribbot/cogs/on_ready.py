@@ -3,6 +3,7 @@ from discord.ext import commands
 
 class OnReady(commands.Cog):
     """Cog handling log messages during bot startup."""
+
     def __init__(self, client):
         self.client = client
 

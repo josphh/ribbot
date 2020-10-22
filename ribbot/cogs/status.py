@@ -8,6 +8,7 @@ status = cycle(["f.help", "\\*ribbit\\*", "uwu froggy go croak croak"])
 
 class StatusCycle(commands.Cog):
     """Cog which cycles the bot's status between various messages."""
+
     def __init__(self, client):
         self.client = client
 

@@ -3,6 +3,7 @@ from discord.ext import commands
 
 class Ping(commands.Cog):
     """Cog providing a way to check the latency of the bot."""
+
     def __init__(self, client):
         self.client = client
 
