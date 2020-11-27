@@ -1,4 +1,4 @@
-# ribbot
+# Ribbot v0.0.0
 The Discord version of 'tamagotchi'. The user can adopt an animal called a "Forg" (a spin off of a frog), and keep it as a companion.
 
 ## Setup
